@@ -45,6 +45,11 @@ int main() {
 		std::cout << item << std::endl;
 	}
 
+	//for ( auto it = Sequence( 10 )                           ; it->HasNext()  ; it->Next() ) {
+	//  const auto item = it->Item() ;
+	//for ( auto begin_ = begin( range_ ), end_ = end( range_ ); begin_ != end_ ; ++begin_   ) {
+	//  const auto& item = *begin_;
+
 	auto&& range_ = Sequence( 10 ) ;
 	for ( auto begin_ = begin( range_ ), end_ = end( range_ ); begin_ != end_; ++begin_ ) {
 		const auto& item = *begin_;
