@@ -9,8 +9,12 @@ struct Iterator {
 	virtual bool HasNext() const = 0 ;
 };
 
-auto begin( const std::unique_ptr<Iterator<int>>& it ) {}
-auto end  ( const std::unique_ptr<Iterator<int>>& it ) {}
+struct Iterator_RangeBasedSupport {
+
+};
+
+Iterator_RangeBasedSupport begin( const std::unique_ptr<Iterator<int>>& it ) {}
+Iterator_RangeBasedSupport end  ( const std::unique_ptr<Iterator<int>>& it ) {}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 std::unique_ptr<Iterator<int>> Sequence( const int limit ) {
