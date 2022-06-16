@@ -31,4 +31,9 @@ int main() {
 
 		std::cout << item << std::endl;
 	}
+
+	
+	for ( const auto item : Sequence( 10 ) ) { // ‚±‚Ì—l‚É‘‚«‚½‚¢B
+		std::cout << item << std::endl;
+	}
 }
