@@ -32,8 +32,14 @@ int main() {
 		std::cout << item << std::endl;
 	}
 
-	
 	for ( const auto item : Sequence( 10 ) ) { // ‚±‚Ì—l‚É‘‚«‚½‚¢B
+		std::cout << item << std::endl;
+	}
+
+	auto&& range_ = Sequence( 10 ) ;
+	for ( auto begin_ = begin( range_ ), end_ = end( range_ ); begin_ != end_; ++begin_ ) {
+		const auto& item = *begin_;
+
 		std::cout << item << std::endl;
 	}
 }
