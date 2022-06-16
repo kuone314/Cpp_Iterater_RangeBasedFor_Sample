@@ -19,9 +19,9 @@ struct Iterator_RangeBasedSupport {
 	void operator++() const {
 		it->Next();
 	}
+	const std::unique_ptr<Iterator<int>>& it ;
 };
-
-Iterator_RangeBasedSupport begin( const std::unique_ptr<Iterator<int>>& it ) {}
+Iterator_RangeBasedSupport begin( const std::unique_ptr<Iterator<int>>& it ) { return{ it }; }
 Iterator_RangeBasedSupport end  ( const std::unique_ptr<Iterator<int>>& it ) {}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
