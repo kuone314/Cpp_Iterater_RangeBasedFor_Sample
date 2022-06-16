@@ -22,7 +22,7 @@ struct Iterator_RangeBasedSupport {
 	const std::unique_ptr<Iterator<int>>& it ;
 };
 Iterator_RangeBasedSupport begin( const std::unique_ptr<Iterator<int>>& it ) { return{ it }; }
-Iterator_RangeBasedSupport end  ( const std::unique_ptr<Iterator<int>>& it ) {}
+Iterator_RangeBasedSupport end  ( const std::unique_ptr<Iterator<int>>& it ) { return{ it };/*dummy*/ }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 std::unique_ptr<Iterator<int>> Sequence( const int limit ) {
