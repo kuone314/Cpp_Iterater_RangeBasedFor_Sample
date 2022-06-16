@@ -10,9 +10,15 @@ struct Iterator {
 };
 
 struct Iterator_RangeBasedSupport {
-	int operator*() const {}
-	bool operator!=( const Iterator_RangeBasedSupport& r ) const {}
-	void operator++() const {}
+	int operator*() const {
+		return it->Item() ;
+	}
+	bool operator!=( const Iterator_RangeBasedSupport& r ) const {
+		return it->HasNext();
+	}
+	void operator++() const {
+		it->Next();
+	}
 };
 
 Iterator_RangeBasedSupport begin( const std::unique_ptr<Iterator<int>>& it ) {}
