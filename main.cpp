@@ -9,8 +9,9 @@ struct Iterator {
 	virtual bool HasNext() const = 0 ;
 };
 
+template<class T>
 struct Iterator_RangeBasedSupport {
-	int operator*() const {
+	T operator*() const {
 		return it->Item() ;
 	}
 	bool operator!=( const Iterator_RangeBasedSupport& r ) const {
@@ -19,10 +20,12 @@ struct Iterator_RangeBasedSupport {
 	void operator++() const {
 		it->Next();
 	}
-	const std::unique_ptr<Iterator<int>>& it ;
+	const std::unique_ptr<Iterator<T>>& it ;
 };
-Iterator_RangeBasedSupport begin( const std::unique_ptr<Iterator<int>>& it ) { return{ it }; }
-Iterator_RangeBasedSupport end  ( const std::unique_ptr<Iterator<int>>& it ) { return{ it };/*dummy*/ }
+template<class T>
+Iterator_RangeBasedSupport<T> begin( const std::unique_ptr<Iterator<T>>& it ) { return{ it }; }
+template<class T>
+Iterator_RangeBasedSupport<T> end  ( const std::unique_ptr<Iterator<T>>& it ) { return{ it };/*dummy*/ }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 std::unique_ptr<Iterator<int>> Sequence( const int limit ) {
