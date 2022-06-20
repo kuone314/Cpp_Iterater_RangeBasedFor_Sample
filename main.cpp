@@ -15,7 +15,7 @@ struct Iterator_RangeBasedSupport {
 		return it->Item() ;
 	}
 	bool operator!=( const Iterator_RangeBasedSupport& r ) const {
-		return it->HasNext();
+		return it && it->HasNext();
 	}
 	void operator++() const {
 		it->Next();
@@ -43,8 +43,12 @@ std::unique_ptr<Iterator<int>> Sequence( const int limit ) {
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+std::unique_ptr<Iterator<int>> Nan() { return nullptr; }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 int main() {
 	for ( const auto item : Sequence( 10 ) ) {
 		std::cout << item << std::endl;
 	}
+	for ( const auto item : Nan() ) {}
 }
