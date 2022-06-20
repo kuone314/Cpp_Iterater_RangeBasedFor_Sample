@@ -16,7 +16,7 @@ struct Iterator_ {
 	T operator*() const {
 		return it->Item() ;
 	}
-	bool operator!=( const Iterator_& ) const {
+	bool operator!=( const nullptr_t ) const {
 		return it && it->HasNext();
 	}
 	void operator++() const {
@@ -29,7 +29,7 @@ struct Iterator_ {
 template<class T>
 impl::Iterator_<T> begin( const std::unique_ptr<Iterator<T>>& it ) { return{ it.get()}; }
 template<class T>
-impl::Iterator_<T> end  ( const std::unique_ptr<Iterator<T>>& it ) { return{ nullptr };/*dummy*/ }
+nullptr_t end  ( const std::unique_ptr<Iterator<T>>& it ) { return nullptr ;/*dummy*/ }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 std::unique_ptr<Iterator<int>> Sequence( const int limit ) {
