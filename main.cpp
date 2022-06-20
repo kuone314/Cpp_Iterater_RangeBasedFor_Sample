@@ -16,7 +16,7 @@ struct Iterator_ {
 	T operator*() const {
 		return it->Item() ;
 	}
-	bool operator!=( const Iterator_& r ) const {
+	bool operator!=( const Iterator_& ) const {
 		return it && it->HasNext();
 	}
 	void operator++() const {
