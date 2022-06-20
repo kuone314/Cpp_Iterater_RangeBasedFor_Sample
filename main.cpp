@@ -20,12 +20,12 @@ struct Iterator_RangeBasedSupport {
 	void operator++() const {
 		it->Next();
 	}
-	const std::unique_ptr<Iterator<T>>& it ;
+	Iterator<T>* it ;
 };
 template<class T>
-Iterator_RangeBasedSupport<T> begin( const std::unique_ptr<Iterator<T>>& it ) { return{ it }; }
+Iterator_RangeBasedSupport<T> begin( const std::unique_ptr<Iterator<T>>& it ) { return{ it.get()}; }
 template<class T>
-Iterator_RangeBasedSupport<T> end  ( const std::unique_ptr<Iterator<T>>& it ) { return{ it };/*dummy*/ }
+Iterator_RangeBasedSupport<T> end  ( const std::unique_ptr<Iterator<T>>& it ) { return{ it.get() };/*dummy*/ }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 std::unique_ptr<Iterator<int>> Sequence( const int limit ) {
