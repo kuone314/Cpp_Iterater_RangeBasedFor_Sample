@@ -29,7 +29,7 @@ struct Iterator_ {
 template<class T>
 impl::Iterator_<T> begin( const std::unique_ptr<Iterator<T>>& it ) { return{ it.get()}; }
 template<class T>
-impl::Iterator_<T> end  ( const std::unique_ptr<Iterator<T>>& it ) { return{ it.get() };/*dummy*/ }
+impl::Iterator_<T> end  ( const std::unique_ptr<Iterator<T>>& it ) { return{ nullptr };/*dummy*/ }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 std::unique_ptr<Iterator<int>> Sequence( const int limit ) {
